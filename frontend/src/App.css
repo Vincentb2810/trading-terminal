@@ -128,13 +128,4 @@ button { font-family: inherit; }
   font-size: 10.5px; color: #eeeeee; background: #111111; border: 1px solid #333333;
   border-radius: 3px; padding: 4px 8px; white-space: nowrap; line-height: 1.4;
 }
-.tt-pin-label .sub { color: #888888; font-size: 9.5px; display: block; }
-
-.positive { color: #00c805; }
-.negative { color: #ff3b30; }
-.error { color: #ff3b30; }
-
-.sr-only {
-  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
-  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-}
+.tt-pin-label

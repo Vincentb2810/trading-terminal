@@ -13,8 +13,6 @@ const STOCK_NAMES = {
   NVDA: "NVIDIA Corp.",
 };
 
-// --- Platzhalter-Daten (werden in späteren Schritten durch echte APIs ersetzt) ---
-
 const DEMO_CANDLES = [
   { o: 336, h: 339, l: 334, c: 338 },
   { o: 338, h: 341, l: 337, c: 336 },
@@ -86,8 +84,6 @@ const CRISIS_MARKERS = [
     sub: "Angriffe auf Frachtschiffe",
   },
 ];
-
-// --- OHLC-Daten -> SVG-Pfade für den Candlestick-Chart ---
 
 function buildCandlePaths(data, w = 600, h = 170, pad = 6) {
   const allValues = data.flatMap((d) => [d.h, d.l]);
