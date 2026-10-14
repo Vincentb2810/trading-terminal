@@ -21,4 +21,14 @@ public class FinnhubService {
                 .retrieve()
                 .body(Quote.class);
     }
+
+    public java.util.List<NewsItem> getCompanyNews(String symbol) {
+        java.time.LocalDate to = java.time.LocalDate.now();
+        java.time.LocalDate from = to.minusDays(7);
+        NewsItem[] items = restClient.get()
+                .uri("/company-news?symbol={symbol}&from={from}&to={to}&token={token}", symbol, from, to, apiKey)
+                .retrieve()
+                .body(NewsItem[].class);
+        return java.util.Arrays.asList(items);
+    }
 }

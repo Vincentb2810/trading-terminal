@@ -12,7 +12,8 @@ button { font-family: inherit; }
 
 .page {
   min-height: 100vh;
-  padding: 32px 48px 56px;
+  width: 100%;
+  padding: 18px 20px 40px;
   box-sizing: border-box;
 }
 
@@ -22,7 +23,7 @@ button { font-family: inherit; }
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 .tt-header-left { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; }
 .tt-logo { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: 2px; color: #ff9900; }
@@ -56,43 +57,86 @@ button { font-family: inherit; }
   background: #00c805; display: inline-block; box-shadow: 0 0 7px #00c805;
 }
 
-.tt-grid {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: 20px;
-  align-items: start;
-}
-@media (max-width: 900px) {
-  .tt-grid { grid-template-columns: 1fr; }
-}
+/* Layout: Grid-Bereich + schmale Icon-Sidebar */
+.tt-layout-row { display: flex; gap: 14px; align-items: flex-start; width: 100%; }
+.tt-grid-area { flex: 1; min-width: 0; }
 
-.tt-panel { background: #111111; border: 1px solid #262626; border-radius: 6px; padding: 20px; box-sizing: border-box; }
-.tt-panel-title {
-  font-size: 12px; letter-spacing: 3px; color: #888888; text-transform: uppercase;
-  border-bottom: 1px solid #262626; padding-bottom: 12px; margin: 0 0 14px 0;
+.tt-sidebar {
+  width: 56px;
+  flex-shrink: 0;
+  background: #111111;
+  border: 1px solid #262626;
+  border-radius: 6px;
+  padding: 10px;
+  position: sticky;
+  top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
+.tt-add-icon-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #161616;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  color: #888888;
+  cursor: pointer;
+}
+.tt-add-icon-btn svg { width: 18px; height: 18px; }
+.tt-add-icon-btn:hover { border-color: #ff9900; color: #ff9900; }
 
-.tt-chart-panel { min-height: 360px; }
-.tt-chart-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 6px; }
-.tt-chart-symbol { display: flex; align-items: baseline; gap: 10px; margin-top: 6px; }
+/* Widget-Box */
+.tt-widget {
+  background: #111111;
+  border: 1px solid #262626;
+  border-radius: 6px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.tt-widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid #262626;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888888;
+  cursor: move;
+  flex-shrink: 0;
+}
+.tt-widget-remove {
+  background: none;
+  border: none;
+  color: #666666;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+.tt-widget-remove:hover { color: #ff3b30; }
+.tt-widget-body { padding: 16px; overflow: auto; flex: 1; }
+
+/* Chart */
+.tt-chart-head { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; }
+.tt-chart-symbol { display: flex; align-items: baseline; gap: 10px; }
 .tt-chart-ticker { font-size: 20px; font-weight: bold; color: #ffffff; }
 .tt-chart-name { font-size: 12px; color: #777777; }
 .tt-chart-price { text-align: right; }
 .tt-chart-value { font-size: 26px; font-weight: bold; color: #ffffff; }
-.tt-timeframes { display: flex; gap: 8px; margin: 14px 0 18px; }
-.tt-timeframe {
-  background: #161616; border: 1px solid #2a2a2a; color: #888888;
-  font-size: 11px; padding: 5px 11px; border-radius: 3px; cursor: pointer;
-}
-.tt-timeframe.active { background: #2a1d08; border-color: #ff9900; color: #ff9900; }
-.tt-chart-svg { width: 100%; height: 190px; display: block; }
-.tt-chart-stats {
-  display: flex; justify-content: space-between; font-size: 11px; color: #777777;
-  border-top: 1px dotted #222222; padding-top: 12px; margin-top: 14px;
-}
+.tt-chart-svg { width: 100%; height: 170px; display: block; }
 
 .tt-placeholder-note { margin: 10px 0 0; font-size: 10.5px; color: #555555; font-style: italic; }
 
+/* Table */
 .tt-table { width: 100%; border-collapse: collapse; }
 .tt-table th {
   text-align: left; font-weight: normal; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
@@ -104,6 +148,7 @@ button { font-family: inherit; }
 .tt-name-cell { color: #888888; }
 .tt-last-update { margin-top: 14px; font-size: 11px; color: #555555; }
 
+/* News */
 .tt-news-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px dotted #1e1e1e; }
 .tt-news-item:last-child { border-bottom: none; padding-bottom: 0; }
 .tt-news-time { color: #555555; font-size: 11px; white-space: nowrap; padding-top: 2px; }
@@ -113,8 +158,9 @@ button { font-family: inherit; }
 }
 .tt-news-headline { font-size: 13px; color: #cccccc; line-height: 1.5; }
 
+/* Map */
 .tt-map {
-  position: relative; height: 280px; border-radius: 4px; overflow: hidden;
+  position: relative; height: 100%; min-height: 200px; border-radius: 4px; overflow: hidden;
   background-color: #0d0d0d;
   background-image: linear-gradient(#1a1a1a 1px, transparent 1px), linear-gradient(90deg, #1a1a1a 1px, transparent 1px);
   background-size: 28px 28px;
@@ -128,4 +174,76 @@ button { font-family: inherit; }
   font-size: 10.5px; color: #eeeeee; background: #111111; border: 1px solid #333333;
   border-radius: 3px; padding: 4px 8px; white-space: nowrap; line-height: 1.4;
 }
-.tt-pin-label
+.tt-pin-label .sub { color: #888888; font-size: 9.5px; display: block; }
+
+.positive { color: #00c805; }
+.negative { color: #ff3b30; }
+.error { color: #ff3b30; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+.react-grid-placeholder { background: #ff9900 !important; opacity: 0.15 !important; border-radius: 6px; }
+
+.tt-widget-body--map { padding: 0; }
+
+.leaflet-container { background: #0d0d0d; height: 100%; width: 100%; }
+.leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.95); }
+.leaflet-control-zoom a { background: #161616 !important; color: #cccccc !important; border-color: #2a2a2a !important; }
+.leaflet-control-attribution { background: rgba(10,10,10,0.7) !important; color: #666666 !important; }
+.leaflet-control-attribution a { color: #888888 !important; }
+.leaflet-popup-content-wrapper { background: #111111; color: #e4e4e4; border: 1px solid #333333; }
+.leaflet-popup-tip { background: #111111; }
+.tt-leaflet-pin { background: transparent; border: none; }
+.react-resizable-handle {
+  z-index: 1001;
+}
+.tt-pin-dot {
+  width: 9px; height: 9px; border-radius: 50%; background: #ff3b30; display: block;
+  box-shadow: 0 0 0 4px rgba(255,59,48,0.18), 0 0 10px rgba(255,59,48,0.7);
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: block;
+}
+#root {
+  display: block;
+  max-width: none;
+}
+
+.tt-map-wrap { display: flex; flex-direction: column; height: 100%; width: 100%; }
+
+.tt-map-layers {
+  display: flex; flex-wrap: wrap; gap: 6px; padding: 8px;
+  background: #111111; border-bottom: 1px solid #262626; flex-shrink: 0;
+}
+.tt-layer-btn {
+  background: #1a1a1a; color: #999999; border: 1px solid #2a2a2a; border-radius: 4px;
+  padding: 4px 8px; font-size: 11px; cursor: pointer; white-space: nowrap;
+}
+.tt-layer-btn.active { background: #262626; color: #e4e4e4; border-color: #3a3a3a; }
+
+.tt-map-error { padding: 4px 8px; font-size: 11px; margin: 0; }
+
+.tt-map-viewport { flex: 1; min-height: 0; }
+
+.tt-pin-red  { background: #ff3b30; box-shadow: 0 0 0 4px rgba(255,59,48,0.18), 0 0 10px rgba(255,59,48,0.7); }
+.tt-pin-orange { background: #ff9500; box-shadow: 0 0 0 4px rgba(255,149,0,0.18), 0 0 10px rgba(255,149,0,0.7); }
+.tt-pin-green { background: #ffcc00; box-shadow: 0 0 0 4px rgba(255,204,0,0.18), 0 0 10px rgba(255,204,0,0.7); }
+
+.tt-infra-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border-radius: 50%; font-size: 12px;
+  border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 0 6px rgba(0,0,0,0.6);
+}
+.tt-infra-nuclear { background: #ffd60a; }
+.tt-infra-oil { background: #8d6e63; }
+.tt-infra-wind { background: #4fc3f7; }
